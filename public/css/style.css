@@ -1,20 +1,27 @@
-*:before,
-*:after {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+*:focus{
+    outline: none;
 }
-.login-form{
-    position: relative;
-    display: inline-block;
-    padding: 10px 123px;
-    background: transparent;
-    color: #fff;
-    font-size: 16px;
-    text-decoration: none;
-    text-transform: uppercase;
-    overflow: hidden;
-    transition: 0.5s;
-    margin-top: 40px;
-    letter-spacing: 4px;
+
+
+/* remove outline form input */
+input:focus {
+    outline: none;
+}
+
+textarea:hover,
+input:hover,
+textarea:active,
+input:active,
+textarea:focus,
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active
+{
+    outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none !important;
 }
