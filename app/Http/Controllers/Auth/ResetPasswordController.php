@@ -11,14 +11,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 use Illuminate\Auth\Authenticatable;
-
+use Illuminate\Support\Facades\Hash;
 
 class ResetPasswordController extends Controller
 {
     use ResetsPasswords;
 
 
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/';
 
     /**
      * Display the password reset view for the given token.
@@ -73,13 +73,11 @@ class ResetPasswordController extends Controller
 
     protected function resetPassword($user, $password)
     {
-        $this->setUserPassword($user, $password);
+        $user->password = Hash::make($password);
 
         $user->setRememberToken(Str::random(60));
         $user->save();
 
         event(new PasswordReset($user));
-
-        return redirect('/login')->with(['success' => 'Your password has been changed, Please Login!']);
     }
 }

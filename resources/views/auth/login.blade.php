@@ -21,6 +21,13 @@
                                 {{ session('status') }}
                             </div>
                         @endif
+                        @if (session('success'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                {{ session('success') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
+                        @endif
                         <div class="card-body bg-body rounded">
                             <div class="form-group">
                                 <label for="email" class="mt-3">Email</label>

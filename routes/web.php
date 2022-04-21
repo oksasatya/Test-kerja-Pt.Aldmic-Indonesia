@@ -16,17 +16,17 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Auth::routes(['verify' => true]);
+Auth::routes();
 
 // login
-Route::get('/', 'LoginController@index')->name('login');
-Route::post('/', 'LoginController@login')->name('send.login');
+Route::get('/', 'Auth\LoginController@index')->name('login');
+Route::post('/', 'Auth\LoginController@login')->name('send.login');
 
 // register
-Route::get('/register', 'RegisterController@showRegistrationForm')->name('register');
-Route::post('/register', 'RegisterController@register')->name('send.register');
+Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('/register', 'Auth\RegisterController@register')->name('send.register');
 // logout
-Route::post('/logout', 'LoginController@logout')->name('logout');
+Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
 // landing page
 Route::group(['middleware' => 'auth'], function () {
@@ -44,6 +44,5 @@ Route::group(['middleware' => 'auth'], function () {
 // Route::get('password/reset', 'ResetPasswordController@showResetForm')->name('password.request');
 // Route::post('password/reset', 'ResetPasswordController@reset')->name('password.reset');
 
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
