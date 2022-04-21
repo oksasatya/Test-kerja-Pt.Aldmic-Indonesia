@@ -35,14 +35,4 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 
-// // reset password
-// // Password reset link request routes...
-// Route::get('password/email', 'ForgotPasswordController@showLinkRequestForm')->name('password.email');
-// Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail');
-
-// // Password reset routes...
-// Route::get('password/reset', 'ResetPasswordController@showResetForm')->name('password.request');
-// Route::post('password/reset', 'ResetPasswordController@reset')->name('password.reset');
-
-
 Route::get('/home', 'HomeController@index')->name('home');
